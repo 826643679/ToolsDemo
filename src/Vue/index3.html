@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性和侦听器</title>
+<!--    <script src="static/js/Vue2.6.11.js"></script>-->
+    <script src="Vue2.6.11.js"></script>
+</head>
+<body>
+
+    <div id="root">
+        姓:<input v-model="firstName"/>
+        名:<input v-model="lastName"/>
+        <div>{{fullName}}</div>
+        <div>{{count}}</div>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#root",
+            data:{
+                firstName:'',
+                lastName:'',
+                count:0
+            },
+            computed:{
+                fullName:function () {
+                    return this.firstName + ' ' + this.lastName
+                }
+            },
+            watch:{
+                firstName:function () {
+                    this.count++
+                },
+                lastName:function () {
+                    this.count++
+                }
+            }
+        })
+    </script>
+</body>
+</html>

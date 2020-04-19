@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue入门</title>
+<!--    <script src="static/js/Vue2.6.11.js"></script>-->
+    <script src="Vue2.6.11.js"></script>
+</head>
+<body>
+
+    <div id="root">
+        <div v-if="show">hello world</div>
+<!--        <div v-show="show">hello world</div>-->
+        <button @click="handleClick">toggle</button>
+        <ul>
+            <li v-for="(item,index) of list" :key="item">{{item}}</li>
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#root",
+            data:{
+                show:true,
+                list:[1,2,3]
+            },
+            methods:{
+                handleClick: function () {
+                    this.show = !this.show;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

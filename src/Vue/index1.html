@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue入门</title>
+<!--    <script src="static/js/Vue2.6.11.js"></script>-->
+    <script src="Vue2.6.11.js"></script>
+</head>
+<body>
+    <!-- 挂载点，Vue实例只会处理挂载点的内容-->
+<!--   <div id="root">-->
+<!--       <h1 v-html="content"></h1>-->
+<!--   </div>-->
+
+    <div id="root">
+        <div @click="handleclick">{{content}}</div>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#root",
+            // template:'<h1>luhao {{msg}}<h1>',
+            data:{
+                msg:"hello world",
+                number:123,
+                content:"hello"
+            },
+            methods:{
+                handleclick:function () {
+                    this.content = "world";
+                }
+            }
+        })
+    </script>
+</body>
+</html>
