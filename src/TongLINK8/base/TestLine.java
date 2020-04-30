@@ -1,5 +1,3 @@
-package TongLINK8.base;
-
 import com.tongtech.tlq.base.TlqConnection;
 import com.tongtech.tlq.base.TlqException;
 import com.tongtech.tlq.base.TlqQCU;
@@ -7,9 +5,9 @@ import com.tongtech.tlq.base.TlqQCU;
 
 public class TestLine {
 	private static TlqConnection tlqConnection = null;
-    private static TlqQCU tlqQcu = null;
-    private static String qcuName;
-    private static String connName;
+	private static TlqQCU tlqQcu = null;
+	private static String qcuName;
+	private static String connName;
 	/**
 	 * @param args
 	 */
@@ -23,7 +21,7 @@ public class TestLine {
 		connName = args[1];
 		TestLine testLine = new TestLine();
 		int status = testLine.testLine(connName);
-		System.out.println("testLine���ص�״̬Ϊ:"+status);
+		System.out.println("testLine返回的状态为:"+status);
 	}
 	public TestLine(){
 		try {

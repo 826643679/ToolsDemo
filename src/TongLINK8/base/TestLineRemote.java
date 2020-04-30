@@ -1,3 +1,5 @@
+package TongLINK8.base;
+
 import com.tongtech.tlq.admin.remote.api.TLQConnect;
 import com.tongtech.tlq.admin.remote.api.TLQOptObjFactory;
 import com.tongtech.tlq.admin.remote.api.TLQParameterException;
@@ -8,30 +10,33 @@ import com.tongtech.tlq.admin.remote.api.qcu.TLQOptSendConn;
 public class TestLineRemote {
 	static TLQOptObjFactory tlqFac = null;
 	private static String qcuName;
-    private static String connName;
+	private static String connName;
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		TLQConnect tlqConnect = null;
-		
-		if (args.length < 1) {
-            System.out.println("---------ÇëÊäÈë²ÎÊý£¡---------");
-            System.out.println(
-                    "TestLineRemote QcuName ConnName");
-            return;
 
-        }
-        if (args.length != 2) {
-            System.out.println("---------ÄúÊäÈëµÄ²ÎÊý¸ñÊ½²»¶Ô£¬ÇëÖØÐÂÊäÈë£¡---------");
-            System.out.println(
-                    "TestLineRemote QcuName ConnName");
-            return;
-        } else {
-        	qcuName = args[0];
-    		connName = args[1];
-        }
+		args=new String[] {"sendqcu","lq"};
+
+		TLQConnect tlqConnect = null;
+
+		if (args.length < 1) {
+			System.out.println("---------è¯·è¾“å…¥å‚æ•°ï¼---------");
+			System.out.println(
+					"TestLineRemote QcuName ConnName");
+			return;
+
+		}
+		if (args.length != 2) {
+			System.out.println("---------æ‚¨è¾“å…¥çš„å‚æ•°æ ¼å¼ä¸å¯¹ï¼Œè¯·é‡æ–°è¾“å…¥ï¼---------");
+			System.out.println(
+					"TestLineRemote QcuName ConnName");
+			return;
+		} else {
+			qcuName = args[0];
+			connName = args[1];
+		}
 		try {
 			tlqConnect = new TLQConnect("127.0.0.1",10252);
 			tlqConnect.connect();
@@ -57,7 +62,7 @@ public class TestLineRemote {
 			int maxTestWaitTime=3;
 			TLQOptSendConn tlqOptSendConn = tlqFac.getTLQOptSendConn(qcuName, connName);
 			int status = tlqOptSendConn.testLine(connName,maxTestWaitTime);
-			System.out.println("testLineµÄ×´Ì¬Îª£º"+status);
+			System.out.println("testLineçš„çŠ¶æ€ä¸ºï¼š"+status);
 		} catch (TLQParameterException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
